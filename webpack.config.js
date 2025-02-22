@@ -9,36 +9,49 @@ module.exports = {
     },
     module: {
         rules: [
-          {
-            test: /\.js?$/,
-            exclude: [path.resolve(__dirname, 'node_modules')],
-            use: ['babel-loader'],
-          },
-          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
-          },
-          {
-            test: /\.gif$/,
-            type: 'asset/inline',
-          },
-          {
-            test: /\.(ttf|eot|svg)$/,
-            type: 'asset/resource',
-          },
+            {
+                test: /\.js?$/,
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: ['babel-loader'],
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.gif$/,
+                type: 'asset/inline',
+            },
+            {
+                test: /\.(ttf|eot|svg)$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(?:js|mjs|cjs)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        targets: "defaults",
+                        presets: [
+                            ['@babel/preset-env']
+                        ]
+                    }
+                }
+            }
         ],
-      },
-      resolve: {
+    },
+    resolve: {
         alias: {
-          config$: './configs/app-config.js',
-          react: './vendor/react-master',
+            config$: './configs/app-config.js',
+            react: './vendor/react-master',
         },
         extensions: ['.js', '.jsx'],
         modules: [
-          'node_modules',
-          'bower_components',
-          'shared',
-          '/shared/vendor/modules',
+            'node_modules',
+            'bower_components',
+            'shared',
+            '/shared/vendor/modules',
         ],
-      },
+    },
 };
