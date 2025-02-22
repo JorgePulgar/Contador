@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\r\n\r\nfunction component() {\r\n    const element = document.createElement('div');\r\n  \r\n    // Lodash, now imported by this script\r\n    element.innerHTML = _.join(['Hello', 'webpack'], ' ');\r\n  \r\n    return element;\r\n  }\r\n  \r\n  document.body.appendChild(component());\n\n//# sourceURL=webpack://contador-jorge/./src/index.js?");
+eval("function component() {\n  const element = document.createElement('div');\n\n  // Lodash, now imported by this script\n  element.innerHTML = _.join(['Hello', 'webpack'], ' ');\n  return element;\n}\ndocument.body.appendChild(component());\n\n//# sourceURL=webpack://contador-jorge/./src/index.js?");
 
 /***/ })
 
