@@ -7,7 +7,21 @@
     <link href="./dist/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>estoy cansado jefe</h1>
-    <script src="./src/index.js"></script>
+    <div class="timer">
+      <div class="setButtons">
+          <button id="upButton">UP</button>
+          <button id="downButton">DOWN</button>
+      </div>
+      <div class="numbers">
+          <div id="minutes">05</div>
+          <div id="seconds">05</div>
+      </div>
+      <div class="controlButtons">
+          <button id="startButton">START</button>
+          <button id="stopButton">STOP</button>
+          <button id="resetButton">RESET</button>
+      </div>
+  </div>
+    <script src="./dist/main.js" type="module"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -53,6 +54,10 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
           filename: 'styles.css'  // Nombre del archivo CSS generado
+        }),
+        new HtmlWebpackPlugin({
+            template: './index.html',  // Archivo HTML fuente
+            filename: 'index.html'  // Nombre del archivo destino
         })
     ],
     resolve: {
@@ -60,8 +65,9 @@ module.exports = {
             config$: './configs/app-config.js',
             react: './vendor/react-master',
         },
-        extensions: ['.js', '.jsx', 'scss'],
+        extensions: ['.js', '.jsx', '.scss'],
         modules: [
+            path.resolve(__dirname, 'src'),
             'node_modules',
             'bower_components',
             'shared',
