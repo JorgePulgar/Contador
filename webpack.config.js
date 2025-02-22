@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -38,15 +39,28 @@ module.exports = {
                         ]
                     }
                 }
-            }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                  MiniCssExtractPlugin.loader,  // Usamos este loader para extraer el CSS
+                  'css-loader',    // Procesa los archivos CSS
+                  'sass-loader',   // Procesa los archivos SASS
+                ],
+            },
         ],
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+          filename: 'styles.css'  // Nombre del archivo CSS generado
+        })
+    ],
     resolve: {
         alias: {
             config$: './configs/app-config.js',
             react: './vendor/react-master',
         },
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', 'scss'],
         modules: [
             'node_modules',
             'bower_components',
