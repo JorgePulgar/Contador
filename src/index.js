@@ -8,7 +8,7 @@ import {decreaseTimer, increaseTimer, reset} from './timer/useCases/changeValueT
 
 console.log("prueba")
 //TO-DO: Get last timer from local storage
-let lastTimer  = 12
+let lastTimer  = 600
 let timer = new Timer(lastTimer)
 console.log('minutes: ', timer.getMinutes())
 console.log('seconds: ', timer.getSeconds())
